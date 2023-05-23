@@ -30,13 +30,14 @@ public class ModeloController {
 
     // http://localhost:8080/api/modelo?id=1
 
-
+    // Mapeamento da lista, para quando ser solicitada pelo usuario no Post, ser entregue pelo /lista.
     @GetMapping("/lista")
     public ResponseEntity<?> ListaCompleta() {
         return ResponseEntity.ok(this.modeloRep.findAll());
 
     }
 
+    // Mapeamento do cadastro de um novo modelo, com o método Post que irá enviar informações ao sistema.
     @PostMapping
     public ResponseEntity<?> cadastrar (@RequestBody final Modelo modelo) {
         try {
@@ -47,6 +48,7 @@ public class ModeloController {
         }
     }
 
+    // Mapeamento da edição de um modelo usando o metodo Put.
     @PutMapping
     public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Modelo modelo) {
         try {

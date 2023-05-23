@@ -29,13 +29,14 @@ public class CondutorController {
 
     // http://localhost:8080/api/condutor?id=1
 
-
+    // Mapeamento da lista, para quando ser solicitada pelo usuario no Post, ser entregue pelo /lista.
     @GetMapping("/lista")
     public ResponseEntity<?> ListaCompleta() {
         return ResponseEntity.ok(this.condutorRepository.findAll());
 
     }
 
+    // Mapeamento do cadastro de um novo condutor., com o método Post que irá enviar informações ao sistema.
     @PostMapping
     public ResponseEntity<?> cadastrar (@RequestBody final Condutor condutor) {
         try {
@@ -46,6 +47,7 @@ public class CondutorController {
         }
     }
 
+    // Mapeamento da edição de um condutor usando o metodo Put.
     @PutMapping
     public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Condutor condutor) {
         try {

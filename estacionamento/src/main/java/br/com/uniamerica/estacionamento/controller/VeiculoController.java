@@ -30,12 +30,14 @@ public class VeiculoController {
     // http://localhost:8080/api/veiculo?id=1
 
 
+    // Mapeamento da lista, para quando ser solicitada pelo usuario no Post, ser entregue pelo /lista.
     @GetMapping("/lista")
     public ResponseEntity<?> ListaCompleta() {
         return ResponseEntity.ok(this.veiculoRep.findAll());
 
     }
 
+    // Mapeamento do cadastro de um novo veiculo, com o método Post que irá enviar informações ao sistema.
     @PostMapping
     public ResponseEntity<?> cadastrar (@RequestBody final Veículo veiculo) {
         try {
@@ -46,6 +48,7 @@ public class VeiculoController {
         }
     }
 
+    // Mapeamento da edição de um veiculo usando o metodo Put.
     @PutMapping
     public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Veículo veiculo) {
         try {
@@ -65,8 +68,8 @@ public class VeiculoController {
         }
     }
 
+    // Mapeamento para premoção de um dos ids criados usando o metodo delete.
     @DeleteMapping ("delete/{id}")
-
     public void deletarVeiculo (@PathVariable Long id)
     {
         veiculoRep.deleteById(id);

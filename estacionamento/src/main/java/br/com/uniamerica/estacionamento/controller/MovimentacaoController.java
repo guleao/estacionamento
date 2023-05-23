@@ -25,13 +25,14 @@ public class MovimentacaoController {
 
     // http://localhost:8080/api/movimentacao?id=1
 
-
+    // Mapeamento da lista, para quando ser solicitada pelo usuario no Post, ser entregue pelo /lista.
     @GetMapping("/lista")
     public ResponseEntity<?> ListaCompleta() {
         return ResponseEntity.ok(this.movimentacaoRep.findAll());
 
     }
 
+    // Mapeamento do cadastro de uma nova movimentação, com o método Post que irá enviar informações ao sistema.
     @PostMapping
     public ResponseEntity<?> cadastrar (@RequestBody final Movimentacao movimentacao) {
         try {
@@ -42,6 +43,7 @@ public class MovimentacaoController {
         }
     }
 
+    // Mapeamento da edição de uma movimentação usando o metodo Put.
     @PutMapping
     public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Movimentacao movimentacao) {
         try {

@@ -30,13 +30,14 @@ public class MarcaController {
 
         // http://localhost:8080/api/marca?id=1
 
-
+        // Mapeamento da lista, para quando ser solicitada pelo usuario no Post, ser entregue pelo /lista.
         @GetMapping("/lista")
         public ResponseEntity<?> ListaCompleta() {
             return ResponseEntity.ok(this.marcaRepository.findAll());
 
         }
 
+        // Mapeamento do cadastro de um nova marca, com o método Post que irá enviar informações ao sistema.
         @PostMapping
         public ResponseEntity<?> cadastrar (@RequestBody final Marca marca) {
             try {
@@ -47,6 +48,7 @@ public class MarcaController {
             }
         }
 
+    // Mapeamento da edição de uma marca usando o metodo Put.
         @PutMapping
         public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Marca marca) {
             try {
