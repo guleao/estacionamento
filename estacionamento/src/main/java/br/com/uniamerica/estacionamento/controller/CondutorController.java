@@ -16,10 +16,10 @@ public class CondutorController {
     @Autowired // Permite a utilização dos metodos de determinada classe, sem precisar instanciala, fazendo a injeçaõ de dependência
     private CondutorRepository condutorRepository;
 
-    @Autowired
+    @Autowired // Permite a utilização dos metodos de determinada classe, sem precisar instanciala, fazendo a injeçaõ de dependência
     private CondutorService condutorServ;
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") // Mapeia a classe abaixo
     public ResponseEntity<Condutor> findByIDPath (@PathVariable("id") final Long id) {
         final Condutor condutor = this.condutorRepository.findById(id).orElse(null);
         return ResponseEntity.ok(condutor);

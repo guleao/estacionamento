@@ -11,6 +11,9 @@ public class VeiculoService {
 
     private VeiculoRepository veiculoRepository;
     @Transactional(rollbackFor = Exception.class)
+
+    // Verificação do veiculo:
+
     public void validaVeiculo (Veículo veiculo)
     {
         Assert.isTrue(veiculo.getPlaca().length() > 15, "Placa inválida.");

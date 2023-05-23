@@ -6,11 +6,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-@Service
+@Service // Está indicando que a classe abaixo é uma service.
 public class MarcaService {
 
     private MarcaRepository marcaRepository;
     @Transactional(rollbackFor = Exception.class)
+
+    // Verificação da marca:
     public void validaMarca (Marca marca)
     {
         Assert.isTrue(marca.getNome().equals(""), "Marca não pode ser nulo");

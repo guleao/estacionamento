@@ -10,11 +10,12 @@ import org.springframework.util.Assert;
 
 import java.beans.Transient;
 
-@Service
+@Service // Está mostrando que a classe é uma service.
 public class ModeloService {
     @Autowired
     private ModeloRepository modeloRepository;
 
+    // Verificação do modelo:
     @Transactional (rollbackFor = Exception.class)
     public void validaModelo (final Modelo modelo){
 

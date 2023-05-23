@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-@Service // Vai fazer anotações de classes na camada serviço.
+@Service // Está indicando que a classe é uma service ( variações e verificações ).
 public class CondutorService { // Criando o CondutorService
 
     @Autowired // AutoWired é usado para injetar automaticamente dependências em um objeto.
@@ -17,6 +17,11 @@ public class CondutorService { // Criando o CondutorService
 
     @Autowired
     private ValidaCpf validarCPF;
+
+    // Abaixo temos uma classe para validar esse condutor, tendo validações para:
+    // nome do condutor.
+    // CPF do condutor.
+    // telefone do condutor.
     @Transactional(rollbackFor = Exception.class)
     public void validaCondutor (Condutor condutor)
     {
@@ -35,7 +40,8 @@ public class CondutorService { // Criando o CondutorService
 
         this.condutorRepository.save(condutor);
     }
-
+    // Abaixo temos um atualizaCondutor, para verificar as informações do condutor quando forem atualizadas.
+    // Temos as mesmas verificações do validaCondutor.
     @Transactional(rollbackFor = Exception.class)
     public void atualizaCondutor (Condutor condutor)
     {
